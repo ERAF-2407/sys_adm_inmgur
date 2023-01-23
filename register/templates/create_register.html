@@ -6,12 +6,12 @@
   <div class="row">
     <div class="col-md-4 offset-md-4 mt-5">
       <form action="/registers/create/" method="POST" class="card card-body">
-        <h1 class="text-center">Create Register</h1>
+        <h1 class="text-center">Crear Registros</h1>
         {{error}}
         {% csrf_token %}
         {{form}}
         <button class="btn btn-primary mt-2">
-          Save
+          Guardar
         </button>
       </form>
     </div>

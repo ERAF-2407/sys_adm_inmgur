@@ -27,9 +27,9 @@ def signup(request):
                 login(request, user)
                 return redirect('registers')
             except IntegrityError:
-                return render(request, 'signup.html', {"form": UserCreationForm, "error": "Username already exists."})
+                return render(request, 'signup.html', {"form": UserCreationForm, "error": "Usuario ya existe."})
 
-        return render(request, 'signup.html', {"form": UserCreationForm, "error": "Passwords did not match."})
+        return render(request, 'signup.html', {"form": UserCreationForm, "error": "Contraseñas no coinciden."})
 
 def signin(request):
     if request.method == 'GET':
@@ -38,7 +38,7 @@ def signin(request):
         user = authenticate(
             request, username=request.POST['username'], password=request.POST['password'])
         if user is None:
-            return render(request, 'signin.html', {"form": AuthenticationForm, "error": "Username or password is incorrect."})
+            return render(request, 'signin.html', {"form": AuthenticationForm, "error": "Usuario o Contraseña Incorrecto."})
 
         login(request, user)
         return redirect('registers')
@@ -65,7 +65,7 @@ def create_register(request):
             new_register.save()
             return redirect('registers')
         except ValueError:
-            return render(request, 'create_register.html', {"form": RegisterForm, "error": "Error creating register."})
+            return render(request, 'create_register.html', {"form": RegisterForm, "error": "Error creando registro."})
 
 @login_required
 def register_detail(request, register_id):
@@ -80,7 +80,7 @@ def register_detail(request, register_id):
             form.save()
             return redirect('registers')
         except ValueError:
-            return render(request, 'register_detail.html', {'register': register, 'form': form, 'error': "Error updating register"})
+            return render(request, 'register_detail.html', {'register': register, 'form': form, 'error': "Error cargando registro"})
 
 @login_required
 def complete_register(request, register_id):
