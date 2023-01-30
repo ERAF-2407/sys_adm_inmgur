@@ -1,0 +1,31 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 class="text-center display-3 py-5">Registros</h1>
+            <ul class="list-group">
+                {% for register in registers %}
+                    <li class="list-group-item">
+                        <a href="{% url 'register_detail' register.id %}">
+                            <header class="d-flex justify-content-between">
+                                {% if register.urgente %}
+                                <h1 class="fw-bold text-success">{{register.title}}</h1>
+                                {% else %}
+                                    <h1 class="fw-bold">{{register.title}}</h1>
+                                {% endif %}
+                                <p>{{register.user.username}}</p>                                
+                            </header>
+                            <p>{{register.description}}</p>
+                            <p>{{register.datecompleted|date:'M j Y:i'}}</p>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</main>
+
+{% endblock %}
