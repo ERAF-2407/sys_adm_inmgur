@@ -63,8 +63,6 @@ class Migration(migrations.Migration):
                 ('medico_tratante', models.CharField(max_length=100)),
                 ('lugar', models.CharField(max_length=100)),
                 ('observaciones', models.TextField(max_length=1000)),
-                ('important', models.BooleanField(default=False)),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
     ]
