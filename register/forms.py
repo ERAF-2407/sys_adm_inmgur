@@ -69,6 +69,4 @@ class RegisterForm(forms.ModelForm):
             
             # 7. OBSERVACIONES
             'observaciones': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Agregue alguna observación'}),
-
         }
-        

@@ -8,6 +8,7 @@
             <h1 class="text-secondary text-center">{{register.title}}</h1>
             {{error}}
                 <form method="POST">
+            <form method="POST">
                     {% csrf_token %}
                     {{form.as_p}}
                     <button class="btn btn-primary">
@@ -28,8 +29,8 @@
                         </button>
                     </form>
                 </div>
+            </form>    
         </div>
     </div>
 </main>
-
 {% endblock %}
